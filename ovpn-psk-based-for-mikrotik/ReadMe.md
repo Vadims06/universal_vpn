@@ -20,6 +20,7 @@ Run the container with mentioned options in order to generate a configuration fi
 -n NTP servers, if not specify Google DNS 8.8.8.8 will be assigned automaticaly. Format -n "1.1.1.1 1.1.1.2"
 ```
 ### Config generation
+Change the network, which is located behind OVPN server container. -p flag
 ```
 docker run -v Mkt-volume:/etc/openvpn --rm vadims06/ovpn-psk-based-for-mikrotik:latest ovpn_genconfig -r "192.168.88.0/24" -p "route x.x.x.x 255.255.255.0" -s "192.168.99.0/24" -L "user2" -P "pass2"
 ```
