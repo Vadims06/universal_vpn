@@ -3,7 +3,7 @@ This container allows launching OpenVPN Server ready for connecting Mikrotik rou
 ## Preparation
 * Download OVPN Image
 
-```docker pull vadims06/ovpn-psk-based-for-mikrotik:lates```
+```docker pull vadims06/ovpn-psk-based-for-mikrotik:latest```
 * Pick a name for the volume container. We use "Mkt-volume" in our example. There are configuration files, CA certificate, DH-keys and clients certificates will be stored in such volume.
 
 ```docker volume create Mkt-volume```
