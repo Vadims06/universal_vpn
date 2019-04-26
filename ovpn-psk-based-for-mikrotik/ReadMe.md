@@ -9,6 +9,8 @@ This container allows to launch OpenVPN Server ready for connecting Mikrotik rou
 ```docker volume create Mkt-volume```
 
 ## Initialize the container for config generation.
+Run the container with mentioned options in order to generate a configuration file for OVPN. The config will be saved in the `Mkt-volume`
+#### Config flags 
 ```
 -r This will allow Mikrotik's private subnet to access the VPN. By default Mikrotik has 192.168.88.0/24 network for LAN.
 -p Routes behind OVPN server container. Push routes to the client to allow them to reach other private subnets behind the server. Network format: x.x.x.x 255.255.255.0. Do not use short version of network notation like x.x.x.x/XX
@@ -17,8 +19,7 @@ This container allows to launch OpenVPN Server ready for connecting Mikrotik rou
 -P Password
 -n NTP servers, if not specify Google DNS 8.8.8.8 will be assigned automaticaly. Format -n "1.1.1.1 1.1.1.2"
 ```
-## Config generation
-Run the container with mentioned options in order to generate a configuration file for OVPN. The config will be saved in the `Mkt-volume`
+### Config generation
 ```
 docker run -v Mkt-volume:/etc/openvpn --rm vadims06/ovpn-psk-based-for-mikrotik:latest ovpn_genconfig -r "192.168.88.0/24" -p "route x.x.x.x 255.255.255.0" -s "192.168.99.0/24" -L "user2" -P "pass2"
 ```
